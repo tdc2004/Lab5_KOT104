@@ -1,6 +1,8 @@
 package com.chinhdev.lab5_kot104.ui.theme
 
 import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
@@ -28,9 +30,12 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.chinhdev.lab5_kot104.R
 
-class Bai2 : AppCompatActivity() {
+class Bai2 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContent {
+            LightSwitch()
+        }
     }
 }
 
@@ -48,7 +53,9 @@ fun LightSwitch() {
             Image(
                 painter = painterResource(id = R.drawable.pngegg),
                 contentDescription = "Light is On",
-                modifier = Modifier.height(500.dp).width(285.dp),
+                modifier = Modifier
+                    .height(500.dp)
+                    .width(285.dp),
                 contentScale = ContentScale.Crop
             )
         } else {
@@ -56,7 +63,9 @@ fun LightSwitch() {
                 painter = painterResource(id =
                 R.drawable.bulb_off),
                 contentDescription = "Light is Off",
-                modifier = Modifier.height(500.dp).width(285.dp),
+                modifier = Modifier
+                    .height(500.dp)
+                    .width(285.dp),
                 contentScale = ContentScale.FillWidth
             )
         }
